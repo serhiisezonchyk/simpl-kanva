@@ -48,3 +48,44 @@
     --ring: 263.4 70% 50.4%;
   }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.circle-color-picker {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border:1px solid gray;
+  border-radius: 50%;
+  overflow: hidden;
+  outline: none;
+  cursor: inherit;
+  cursor: pointer;
+}
+
+/* -webkit */
+.circle-color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.circle-color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+/* firefox */
+.circle-color-picker::-moz-focus-inner {
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.circle-color-picker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+  height: 140px;
+}

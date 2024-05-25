@@ -16,7 +16,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ activeTool, onChange }) => {
     { id: Tool.PENCIL, IconTool: Pencil },
   ];
   return (
-    <div className="bg absolute left-1/2 top-5 z-20 flex w-fit -translate-x-1/2 items-center gap-10 bg-gray-800 p-2 rounded-lg ">
+    <div className="bg md-4 absolute z-20 justify-around flex w-full items-center bg-gray-800 p-2 md:left-1/2 md:top-5 md:w-fit md:-translate-x-1/2 md:gap-10 md:rounded-lg">
       {tools.map(({ id, IconTool }, i) => {
         return (
           <ToolbarButton onClick={() => onChange(id)} active={id === activeTool} key={id}>

@@ -6,26 +6,31 @@ export const useTool = () => {
 
   useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case '1':
-          setTool(Tool.POINTER);
-          break;
-        case '2':
-          setTool(Tool.GRAB);
-          break;
-        case '3':
-          setTool(Tool.RECTANGLE);
-          break;
-        case '4':
-          setTool(Tool.CIRCLE);
-          break;
-        case '5':
-          setTool(Tool.TEXT);
-          break;
-        case '6':
-          setTool(Tool.PENCIL);
-          break;
-      }
+      const activeElement = document.activeElement;
+      const isInputActive =
+        activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA');
+
+      if (!isInputActive)
+        switch (e.key) {
+          case '1':
+            setTool(Tool.POINTER);
+            break;
+          case '2':
+            setTool(Tool.GRAB);
+            break;
+          case '3':
+            setTool(Tool.RECTANGLE);
+            break;
+          case '4':
+            setTool(Tool.CIRCLE);
+            break;
+          case '5':
+            setTool(Tool.TEXT);
+            break;
+          case '6':
+            setTool(Tool.PENCIL);
+            break;
+        }
     };
 
     window.addEventListener('keydown', handleKeydown);
@@ -33,5 +38,5 @@ export const useTool = () => {
       window.removeEventListener('keydown', handleKeydown);
     };
   }, []);
-  return {tool, setTool};
+  return { tool, setTool };
 };
